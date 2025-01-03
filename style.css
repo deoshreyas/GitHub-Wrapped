@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Hind', sans-serif;
+    --col1: #2197ff;
+    --col2: #ff00aa;
+    --overlay-direction: 1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, var(--col1), var(--col2));
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+swiper-slide.error-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    border: 0.5em solid white;
+    border-radius: 2em;
+    font-family: var(--font-primary);
+}
+
+/* Wrapped Styles */
+
+#wrapped {
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+swiper-container {
+    max-width: 300px;
+    min-height: 500px;
+    border-radius: 2em;
+    cursor: pointer;
+    text-align: center;
+}
+
+swiper-container::part(bullet) {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    opacity: 0.5;
+    position: relative;
+    bottom: -50px;
+}
+
+swiper-container::part(bullet-active) {
+    width: 7.5px;
+    height: 7.5px;
+    background-color: white;
+    opacity: 1;
+    position: relative;
+    bottom: -50px;
+}
+
+swiper-container::part(pagination) {
+    bottom: 20px;
+    position: absolute;
+}
+
+swiper-slide {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2em;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    border: 0.5em solid white;
+}
+
+swiper-slide h2 {
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    line-height: 1em;
+    font-weight: 100;
+}
+
+#logo {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+#logo2 {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+@media (max-width: 690px) {
+    #logo {
+        display: none !important;
+    }
+
+    #logo2 {
+        display: none !important;
+    }
+}
+
+/* ******************CANVAS STYLES****************** */
+
+swiper-slide canvas {
+    border-radius: 2em;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+/* ******************SLIDES****************** */
+
+#s1 {
+    background-color: black;
+    color: white;
+    border: 0.5em solid white;
+}
+
+#s1 img {
+    height: 100px;
+    border-radius: 1000em;
+}
+
+#s1 h1 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#s1 h2 {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 1.75em;
+    font-weight: 800;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#s1 h3 {
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    font-size: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    margin-top: -2em;
+}
+
+#s2 {
+    background-color: black;
+    color: black;
+    border: 0.5em solid white;
+}
+
+#s2 h1 {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: 2em;
+    text-align: center;
+    color: black;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#s3 {
+    background-color: aquamarine;
+    text-align: center;
+    font-family: var(--font-primary);
+}
+
+#s3 h1 {
+    font-size: 2em;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+}
+
+.personality-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: 0.5em solid white;
+    border-radius: 2em;
+}
+
+.personality-slide h1 {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: 2em;
+    margin-bottom: 1em;
+    margin-bottom: 0;
+}
+
+.personality-slide img {
+    height: 150px;
+}
+
+.personality-slide h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    line-height: 1em;
+    font-weight: 100;
+}
+
+.language-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: 0.5em solid white;
+    border-radius: 2em;
+    font-family: var(--font-primary);
+}
+
+.language-slide h1 {
+    font-weight: 800;
+    font-size: 2em;
+}
+
+.language-slide #topLang {
+    font-weight: bold;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.language-slide h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5em;
+    margin-bottom: 2.5em;
+    line-height: 1em;
+    font-weight: 100;
+}
+
+.language-slide canvas#topLangChart {
+    width: 100%;
+    height: 250px;
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.num-slide {
+    border: 0.5em solid white;
+}
+
+.num-slide h1 {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: 8em;
+    margin-bottom: 1em;
+    margin-bottom: 0;
+}
+
+.num-slide h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    line-height: 1em;
+    font-weight: 100;
+}
+
+.too-many-nums-slide h1 {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: 2em;
+    margin-bottom: 1em;
+    margin-bottom: 0;
+}
+
+.month-wise-slide h1 {
+    font-size: 1.75em;
+    margin: 0;
+}
+
+.month-wise-slide h2 {
+    font-size: 1.25em;
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+canvas#month-wise-contribution {
+    position: relative;
+    z-index: 1;
+}
+
+.most-starred-slide h1, h2 {
+    margin: 0;
+}
+
+.most-common-commit-slide div {
+    background-color: black;
+    border-radius: 1.5em;
+}
+
+.contributions-vs-type-slide h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.25em;
+    font-weight: 900;
+    margin-top: 0.5em;
+    line-height: 1em;
+    font-weight: 100;
+}
+
+.contributions-vs-type-slide canvas#contributions-vs-type-chart {
+    width: 90% !important;
+    height: 400px !important;
+    margin-top: 0 auto;
+    position: relative;
+    z-index: 1;
+}

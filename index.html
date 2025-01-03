@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Wrapped!</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        :root {
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Hind', sans-serif;
+            --col1: #2197ff;
+            --col2: #ff00aa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, var(--col1), var(--col2));
+            min-height: 100vh;
+            min-width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #get-username {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 2em;
+            padding: 2em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        #get-username h1 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        #get-username input {
+            font-family: var(--font-secondary);
+            font-weight: 500;
+            font-size: 1em;
+            padding: 0.5em;
+            border: 1px solid var(--col2);
+            color: var(--col2);
+            border-radius: 0.5em;
+            margin-bottom: 1em;
+            width: 100%;
+        }
+
+        #get-username input::placeholder {
+            color: var(--col2);
+        }
+
+        #get-username input:focus {
+            outline: none;
+            border-color: var(--col1);
+        }
+
+        #get-username button {
+            font-family: var(--font-secondary);
+            font-weight: 500;
+            font-size: 1em;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 0.5em;
+            background-color: var(--col2);
+            border: 2px solid var(--col2);
+            color: white;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #get-username button:hover {
+            background-color: white;
+            color: var(--col2);
+        }
+
+        #logo {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+        }
+
+        #logo2 {
+            position: absolute;
+            bottom: 1em;
+            right: 1em;
+        }
+
+        error {
+            background-color: rgb(255, 110, 110);
+            font-family: var(--font-primary);
+            font-weight: 400;
+            padding: 0.5em 0.75em;
+            font-size: 1.25em;
+            border-radius: 0.5em;
+            position: absolute;
+            top: 1em;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s;
+            cursor: default;
+        }
+
+        error button {
+            font-family: var(--font-primary);
+            font-weight: 900;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1em;
+            margin-top: -0.25em;
+            margin-left: 0.5em;
+        }
+
+        @media (max-width: 690px) {
+            #logo {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            #logo2 {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/logo.png" alt="logo" id="logo", width="250px">
+    <img src="assets/logo2.png" alt="logo2" id="logo2", width="250px">
+    <error>Something went wrong<button onclick="errorDisappear()" id="error-btn">&#10006</button></error>
+    <div id="get-username">
+        <h1>Get your GitHub Wrapped!</h1>
+        <input type="text" id="username" placeholder="Enter your GitHub username" autocomplete="off">
+        <button id="set-username">Wrapped!</button>
+    </div>
+    <script>
+        document.getElementById('set-username').addEventListener('click', function(event) {
+            const username = document.getElementById('username');
+            if (username.value !== '') {
+                // Check if username is a valid GitHub username and only show wrapped data if it is
+                fetch (`https://api.github.com/users/${username.value}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            console.log('Response returned:', response);
+                            document.querySelector('error').style.opacity = 1;
+                            setTimeout(() => {
+                                document.querySelector('error').style.opacity = 0;
+                            }, 10000);
+                        } else {
+                            const nextURL = `wrapped.html?username=${username.value}`;
+                            window.history.pushState({}, '', nextURL);
+                            window.location.href = nextURL;
+                        }
+                    })
+            };
+        });
+        
+        function errorDisappear() {
+            document.querySelector('error').style.opacity = 0;
+        }
+    </script>
+</body>
+</html>

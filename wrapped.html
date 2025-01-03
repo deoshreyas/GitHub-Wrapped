@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Wrapped!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="assets/logo.png" alt="logo" id="logo", width="250px">
+    <img src="assets/logo2.png" alt="logo2" id="logo2", width="250px">
+    <div id="wrapped">
+        <swiper-container slides-per-view="1" space-between="250" pagination="true" keyboard="true" effect="cards">
+        </swiper-container>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        import Chart from 'https://cdn.jsdelivr.net/npm/chart.js/auto/auto.mjs';
+        window.Chart = Chart;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
