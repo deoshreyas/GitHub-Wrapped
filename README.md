@@ -6,7 +6,9 @@ A fun website to see a review of your 2024 GitHub Usage Statistics!
 <img width="959" alt="demo" src="https://github.com/user-attachments/assets/e88f74f5-c179-4463-9ac3-e700553c6fa0" />
 
 ## :question: How to run?
-Just click [here](https://kaleidoscopic-madeleine-d44caa.netlify.app/)!
+1. Please clone the repository locally (using a version control like `git` or just hitting download).
+2. Please set an API Key in the `script.js` file (this is a Personal Access Token used to make requests to the GitHub GraphQL API, and the REST API).
+3. Just open `index.html` and have fun viewing your statistics! 
 
 ## :closed_book: The Statistics & Metrics
 The statistics you are shown are:
