@@ -6,7 +6,9 @@ A fun website to see a review of your 2024 GitHub Usage Statistics!
 <img width="959" alt="demo" src="https://github.com/user-attachments/assets/e88f74f5-c179-4463-9ac3-e700553c6fa0" />
 
 ## :question: How to run?
-Just click [here](https://golden-sawine-509553.netlify.app/)!
+1. Clone the repository on your machine (if you have `git` installed, use `git clone`).
+2. Replace `API_KEY` with your GitHub Personal Access Token / API Key (needed to access the GraphQL API).
+3. Set up a simple server, and run! 
 
 ## :closed_book: The Statistics & Metrics
 The statistics you are shown are:
